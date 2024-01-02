@@ -1,9 +1,5 @@
 # Wordpress サイト 新規構築テンプレート
 
-## 集約シート
-
-https://docs.google.com/spreadsheets/d/15iV0zgWneKSEFd7Q2_pRykN38Nm3xgoNOqf79lKpx3k/edit#gid=1848835498
-
 ## Gulp の環境構築
 
 ### 1. Node モジュールをインストール
