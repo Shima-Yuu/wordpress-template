@@ -1,0 +1,22 @@
+/************************************************************
+*  Foundation
+*  baseのスタイルを定義。HTMLタグに対してスタイルをかける
+*************************************************************/
+@use '../global/variable' as *;
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-family: $ff-yugoshic;
+  color: #000;
+  position: relative;
+  z-index: 10;
+}
+img {
+  width: 100%;
+  height: auto;
+  position: relative;
+}

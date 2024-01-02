@@ -1,0 +1,457 @@
+/************************************************************
+*  Utility
+*  汎用的なスタイルを定義
+*************************************************************/
+@use '../../global' as *;
+
+/* 下線
+--------------------------------------------------------------------------------------- */
+.u-external_link {
+  transition: 0.3s ease !important;
+  text-decoration: underline !important;
+}
+
+.u-external_link:hover {
+  opacity: 0.8 !important;
+  text-decoration: none !important;
+}
+
+/* 透過
+--------------------------------------------------------------------------------------- */
+.u-hover {
+  transition: 0.3s !important;
+  &:hover {
+    opacity: 0.8 !important;
+  }
+}
+
+/* PC/SP 非表示
+--------------------------------------------------------------------------------------- */
+
+.u-sp_none {
+  display: block !important;
+
+  @include mq() {
+    display: none !important;
+  }
+}
+
+.u-pctab_none {
+  display: none !important;
+
+  // 1023pxからblock
+  @include mq(tab) {
+    display: block !important;
+  }
+}
+
+.u-tab_none {
+  display: block !important;
+
+  // 1023px～768pxまでnone
+  @include mq(tab) {
+    display: none !important;
+  }
+
+  @include mq(sp) {
+    display: block !important;
+  }
+}
+
+.u-sptab_none {
+  display: block !important;
+
+  // 1023pxからnone
+  @include mq(tab) {
+    display: none !important;
+  }
+}
+
+.u-pc_none {
+  display: none !important;
+
+  @include mq() {
+    display: block !important;
+  }
+}
+
+/* 横幅・縦幅
+--------------------------------------------------------------------------------------- */
+.u-w-auto {
+  width: auto !important;
+  @include mq {
+    width: 100% !important;
+  }
+}
+.u-h-auto {
+  height: auto !important;
+}
+
+// width
+$width: 0;
+
+@while $width < 101 {
+  $escaped-percent: unquote('%'); // % をエスケープ
+
+  .u-w#{$width} {
+    width: $width + #{$escaped-percent} !important;
+  }
+  .u-sp-w#{$width} {
+    @include mq {
+      width: $width + #{$escaped-percent} !important;
+    }
+  }
+
+  $width: $width + 5;
+}
+
+// width
+$height: 0;
+
+@while $height < 101 {
+  $escaped-percent: unquote('%') !important; // % をエスケープ
+
+  .u-w#{$height} {
+    height: $height + #{$escaped-percent} !important;
+  }
+  .u-sp-w#{$height} {
+    @include mq {
+      height: $height + #{$escaped-percent} !important;
+    }
+  }
+
+  $height: $height + 5;
+}
+
+/* ドットリスト（・）
+--------------------------------------------------------------------------------------- */
+
+.u-list_dot li {
+  position: relative !important;
+  padding-left: 1.5rem !important;
+  text-align: left !important;
+  font-size: clamp(14px, 3.5vw, 16px) !important;
+}
+
+.u-list_dot li::before {
+  content: '・' !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.u-list_dot li.dot_none::before {
+  display: none !important;
+}
+
+.u-list_dot {
+  &--big {
+    li {
+      font-size: clamp(14px, 3.5vw, 20px) !important;
+      & + li {
+        margin-top: 8px !important;
+      }
+    }
+    li + * {
+      margin-bottom: 8px !important;
+    }
+  }
+}
+
+/* 注釈リスト（※）
+--------------------------------------------------------------------------------------- */
+
+.u-list_notes {
+  // line-height: $line-height-15 !important;
+  * + & {
+    margin-top: 0.8em !important;
+  }
+
+  &--small {
+    & li,
+    .u-notes {
+      font-size: clamp(10px, 2.5vw, 15px) !important;
+    }
+  }
+}
+
+.u-list_notes li,
+.u-notes {
+  position: relative !important;
+  list-style: none !important;
+  padding: 0 0 0 1.2em !important;
+  margin-bottom: 0 !important;
+  background-image: none !important;
+  /* TODO タブレット最適化後に削除*/
+  font-size: clamp(13px, 3.5vw, 14px) !important;
+  // font-weight: 400 !important;
+  display: inline-block !important;
+
+  &::before {
+    content: '※' !important;
+    position: absolute !important;
+    left: 0 !important;
+    display: inline-block !important;
+  }
+}
+
+.u-list_notes li + li,
+.u-notes + .u-notes {
+  margin-top: 3px !important;
+}
+
+.u-notes--big {
+  font-size: clamp(13px, 3.5vw, 20px) !important;
+}
+
+.u-list_notes--block {
+  li {
+    display: block !important;
+  }
+}
+
+.u-notes--block {
+  display: block !important;
+}
+
+.u-notes--fs16 {
+  font-size: clamp(13px, 3.5vw, 16px) !important;
+}
+
+/* テキストインデント
+--------------------------------------------------------------------------------------- */
+
+.u-txt-indent {
+  text-indent: -1em !important;
+  padding-left: 1em !important;
+}
+
+/* テキストホバー
+--------------------------------------------------------------------------------------- */
+
+.u-txt-underline {
+  display: inline-block !important;
+  text-decoration: underline !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* text-align
+--------------------------------------------------------------------------------------- */
+
+.u-align {
+  &-c {
+    text-align: center !important;
+  }
+
+  &-l {
+    text-align: left !important;
+  }
+
+  &-r {
+    text-align: right !important;
+  }
+}
+
+@include mq(sp) {
+  .u-spalign {
+    &-c {
+      text-align: center !important;
+    }
+
+    &-l {
+      text-align: left !important;
+    }
+
+    &-r {
+      text-align: right !important;
+    }
+  }
+}
+
+/* 揃え
+--------------------------------------------------------------------------------------- */
+
+.u-margin {
+  &-l {
+    margin: 0 auto 0 0 !important;
+  }
+
+  &-c {
+    margin: 0 auto !important;
+  }
+
+  &-r {
+    margin: 0 0 0 auto !important;
+  }
+}
+
+@include mq(sp) {
+  .u-spmargin {
+    &-l {
+      margin: 0 auto 0 0 !important;
+    }
+
+    &-c {
+      margin: 0 auto !important;
+    }
+
+    &-r {
+      margin: 0 0 0 auto !important;
+    }
+  }
+}
+
+/* 文字色
+--------------------------------------------------------------------------------------- */
+.u-color-white {
+  color: #fff !important;
+}
+.u-color-black {
+  color: #000 !important;
+}
+
+/* 背景色
+--------------------------------------------------------------------------------------- */
+
+/* ボーダー
+--------------------------------------------------------------------------------------- */
+
+.u-border_current {
+  border-bottom: 1px solid currentColor !important;
+}
+
+/* フォント
+--------------------------------------------------------------------------------------- */
+.u-ff-yugoshic {
+  font-family: $ff-yugoshic !important;
+}
+
+.u-ff-yugoshic-bold {
+  font-family: $ff-yugoshic-bold !important;
+  font-weight: bold !important;
+}
+
+.u-ff-yumincho {
+  font-family: $ff-yumincho !important;
+}
+
+.u-ff-yumincho-bold {
+  font-family: $ff-yumincho !important;
+  font-weight: bold !important;
+}
+
+// font-sizeを定義
+@for $i from 10 through 20 {
+  .u-fs#{$i} {
+    font-size: $i + px !important;
+  }
+}
+
+// margin: top,bottomを定義
+$margin: 0;
+
+@while $margin < 301 {
+  .u-mt#{$margin} {
+    margin-top: $margin + px !important;
+  }
+
+  .u-mb#{$margin} {
+    margin-bottom: $margin + px !important;
+  }
+
+  .u-mr#{$margin} {
+    margin-right: $margin + px !important;
+  }
+
+  .u-ml#{$margin} {
+    margin-left: $margin + px !important;
+  }
+
+  $margin: $margin + 5;
+}
+
+// padding: top,bottomを定義
+$padding: 0;
+
+@while $padding < 101 {
+  .u-pt#{$padding} {
+    padding-top: $padding + px !important;
+  }
+
+  .u-pb#{$padding} {
+    padding-bottom: $padding + px !important;
+  }
+  .u-pl#{$padding} {
+    padding-left: $padding + px !important;
+  }
+
+  .u-pr#{$padding} {
+    padding-right: $padding + px !important;
+  }
+
+  $padding: $padding + 5;
+}
+
+$column_gap: 0;
+
+@while $column_gap < 101 {
+  .u-cg#{$column_gap} {
+    column-gap: $column_gap + px !important;
+  }
+
+  .u-cg#{$column_gap} {
+    column-gap: $column_gap + px !important;
+  }
+
+  $column_gap: $column_gap + 5;
+}
+
+@include mq() {
+  // font-sizeを定義
+  @for $i from 10 through 21 {
+    .u-spfs#{$i} {
+      font-size: $i + px !important;
+    }
+  }
+
+  // margin: top,bottomを定義
+  $margin: 0;
+
+  @while $margin < 151 {
+    .u-spmt#{$margin} {
+      margin-top: $margin + px !important;
+    }
+
+    .u-spmb#{$margin} {
+      margin-bottom: $margin + px !important;
+    }
+
+    .u-mr#{$margin} {
+      margin-right: $margin + px !important;
+    }
+
+    .u-ml#{$margin} {
+      margin-left: $margin + px !important;
+    }
+
+    $margin: $margin + 5;
+  }
+
+  // padding: top,bottomを定義
+  $padding: 0;
+
+  @while $padding < 151 {
+    .u-sppt#{$padding} {
+      padding-top: $padding + px !important;
+    }
+
+    .u-sppb#{$padding} {
+      padding-bottom: $padding + px !important;
+    }
+
+    $padding: $padding + 5;
+  }
+}

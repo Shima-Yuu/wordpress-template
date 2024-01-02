@@ -1,0 +1,49 @@
+/************************************************************
+*  Global
+*  Mixinを定義
+*************************************************************/
+@use 'variable' as *;
+@use 'function' as *;
+
+// メディアクエリのショートカット
+@mixin mq($breakpoint: sp) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin max-screen($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin min-screen($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// 游ゴシックを太くする際に、フォントファミリーを変える必要があるため
+@mixin fw-bold {
+  font-family: $ff-yugoshic-bold;
+  font-weight: bold;
+}
+@mixin fw-normal {
+  font-family: $ff-yugoshic;
+  font-weight: normal;
+}
+
+// 中央に寄せるコンテンツの共通スタイル
+// $width・・・要素の横幅を指定
+@mixin centerCont($width, $padding_w: 20, $padding_h: 0) {
+  width: min(#{$width}, 100%);
+  margin: 0 auto;
+
+  $bp: $width + calc($padding_w * 2);
+  @if $padding_w != 0 or $padding_h != 0 {
+    @include max-screen(#{$bp}) {
+      padding: #{$padding_h}px #{$padding_w}px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/*
+#overview
+ボックス
+
+汎用的なボックスのスタイルを定義
+*/
+
+@use '../../global' as *;
+
+/*
+#styleguide
+概要
+```
+<div class="c-box">
+  ダミーダミー<br>
+  ダミーダミー<br>
+  ダミーダミー<br>
+  ダミーダミー
+</div>
+```
+*/
+.c-box {
+  background-color: #fff;
+  padding: 20px;
+  font-size: 1.6rem;
+  line-height: 2;
+  display: block;
+  width: calc((100% / 3) - 22px);
+  box-shadow: 0 20px 50px rgba(#001c40, 0.25);
+  border-radius: 20px;
+  transition: 0.3s;
+  position: relative;
+  top: 0;
+  @include max-screen($bp_tab) {
+    width: calc((100% / 2) - 16px);
+  }
+  @include max-screen($bp_sp) {
+    width: calc((100% / 2) - 10px);
+    box-shadow: 0 10px 20px rgba(#001c40, 0.25);
+    border-radius: 10px;
+  }
+
+  &:hover {
+    top: -10px;
+    @include mq {
+      top: initial;
+    }
+  }
+
+  /*
+  #styleguide
+  ブルーバージョン
+  ```
+  <div class="c-box c-box--blue">
+    ダミーダミー<br>
+    ダミーダミー<br>
+    ダミーダミー<br>
+    ダミーダミー
+  </div>
+  ```
+  */
+  &--blue {
+    background-color: #244ad2;
+    color: #fff;
+  }
+}

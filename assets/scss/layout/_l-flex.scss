@@ -1,0 +1,54 @@
+/*********************************************************************************
+*  Layout
+*  Headerを定義
+**********************************************************************************/
+
+@use '../global/' as *;
+
+.l-flex {
+  display: flex;
+  &--jcsb {
+    justify-content: space-between;
+  }
+  &--jcc {
+    justify-content: center;
+  }
+  &--aic {
+    align-items: center;
+  }
+  &--ais {
+    align-items: start;
+  }
+
+  &--spjcsb {
+    @include mq {
+      justify-content: space-between;
+    }
+  }
+  &--spjcc {
+    @include mq {
+      justify-content: center;
+    }
+  }
+  &--spaic {
+    @include mq {
+      align-items: center;
+    }
+  }
+  &--spais {
+    @include mq {
+      align-items: start;
+    }
+  }
+
+  &-tabblock {
+    @include mq(tab) {
+      display: block;
+    }
+  }
+  &-spblock {
+    @include mq() {
+      display: block;
+    }
+  }
+}

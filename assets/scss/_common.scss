@@ -1,0 +1,17 @@
+/************************************************************
+*  ページ全体に読み込ませるcss
+*************************************************************/
+// Global
+@use 'global';
+
+// Foundation
+@use 'foundation';
+
+// Plugin
+@use 'plugin/scrollAnimation';
+
+// Layout
+@use 'layout';
+
+// Object
+@use 'object/scope';

@@ -1,0 +1,76 @@
+@charset 'utf-8';
+
+/*
+- Overview画面
+----------------------------------------------------------------------------------------*/
+.fn-overview p,
+.fn-overview ul,
+.fn-overview li,
+.fn-overview a
+ {
+  margin-bottom: 16px;
+}
+
+.fn-overview ul ul,
+.fn-overview ul li{
+  margin-bottom: 10px;
+}
+
+.fn-overview ul a {
+  margin-bottom: 0;
+}
+
+.fn-overview ul ul {
+  margin-top: 5px;
+}
+
+.fn-overview h1,
+.fn-overview h2,
+.fn-overview h3 {
+  margin-bottom: 7px;
+}
+
+
+.fn-overview a {
+  display: inline-block;
+  color: rgb(9, 105, 218);
+}
+.fn-overview a:hover {
+  opacity: .7;
+}
+
+.fn-overview code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+}
+
+.fn-overview pre code {
+  background-color: initial;
+}
+
+/*
+- 各画面
+----------------------------------------------------------------------------------------*/
+.fn-sidebar .fn-menu {
+  line-height: 1.3; 
+}
+.fn-sidebar .fn-menu .label {
+  display: inline-block;
+  padding: 2px 15px;;
+  border-radius: 7px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.fn-sidebar .fn-menu .label-component {
+  background-color: #a0c8ff;
+}
+.fn-sidebar .fn-menu .label-project {
+  background-color: #ffadad;
+}
+.fn-sidebar .fn-menu .label-default {
+  background-color: #d6d6d6;
+}

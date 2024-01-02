@@ -1,0 +1,20 @@
+/************************************************************
+*  Global
+*  関数を定義
+*************************************************************/
+@use 'variable' as *;
+
+// clampのショートカット
+@function clp($min, $vw, $max) {
+  @return clamp($min, calc(calc($vw / 375) * 100vw), $max);
+}
+
+// SP時のvwの設定
+@function cl($vw, $window_w: 375) {
+  @return calc(calc($vw / $window_w) * 100vw);
+}
+
+// PC/Tabのスタイルをviewportの幅で縮める
+@function vw($pc_val, $sp_val) {
+  @return min($pc_val, calc(($pc_val/1024) * 100vw));
+}

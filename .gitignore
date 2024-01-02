@@ -1,0 +1,27 @@
+package-lock.json
+node_modules
+**/.env
+assets/css/
+images_bk/
+
+# public内のpluignディレクトリ以外をignore
+assets/public/*
+!assets/public/plugin
+
+# ejsをignore
+assets/ejs/*
+
+# gitのキャッシュで新規ファイル、ディレクトリ系はignoreされてます
+assets/styleGuide/assets/js/*
+assets/styleGuide/assets/css/*
+assets/styleGuide/assets/images
+assets/styleGuide/assets/fonts
+assets/styleGuide/assets/lib
+assets/styleGuide/*.html
+
+!assets/styleGuide/assets/js/styleGuide.js
+!assets/styleGuide/assets/css/styleGuide.css
+!assets/styleGuide/overview.md
+
+# ローカル用のファイルをignore
+local/*

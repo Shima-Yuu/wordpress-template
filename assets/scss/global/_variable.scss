@@ -1,0 +1,72 @@
+/*
+#overview
+カラーパレット
+
+本サイトで使用するカラーコード一覧です。
+*/
+
+/*
+#colors
+
+@$baseWhite #eaeaea
+@$baseGray #a4a4a4
+
+@$mainGreen #038d41
+@$mainRed #de0808
+@$mainBlue #0e14c6
+
+@$accentPurple #8200f3
+@$accentYellow #e7ff0e
+
+@$txtBlack #0e0e0e
+
+@$shadowBlue #001c40
+@$shadowBlue2 #00587c
+@$shadowBlue3 #3e597e
+*/
+
+$baseWhite: #eaeaea;
+$baseGray: #a4a4a4;
+
+$mainGreen: #038d41;
+$mainRed: #de0808;
+$mainBlue: #0e14c6;
+
+$accentPurple: #8200f3;
+$accentYellow: #e7ff0e;
+
+$txtBlack: #0e0e0e;
+
+$shadowBlue: #001c40;
+$shadowBlue2: #00587c;
+$shadowBlue3: #3e597e;
+
+// font-family
+$ff-yugoshic: 游ゴシック medium, yu gothic medium, 游ゴシック, yu gothic, メイリオ, meiryo, ヒラギノ角ゴ pro,
+  hiragino kaku gothic pro, sans-serif;
+$ff-yugoshic-bold: '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
+  'メイリオ', sans-serif;
+$ff-yumincho: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+
+// breakpoint
+$bp_sp: 640px;
+$bp_tab: 1024px;
+$breakpoints: (
+  tab: $bp_tab,
+  sp: $bp_sp,
+);
+
+$bp780: 780px;
+
+// メディアクエリの順番を定義
+body {
+  @media screen and (max-width: $bp_tab) {
+    margin: 0;
+  }
+  @media screen and (max-width: $bp780) {
+    margin: 0;
+  }
+  @media screen and (max-width: $bp_sp) {
+    margin: 0;
+  }
+}
