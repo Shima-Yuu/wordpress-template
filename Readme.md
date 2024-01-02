@@ -49,7 +49,7 @@ gulp run
 gulp styleGuide
 ```
 
-**SCSS コンパイル専用(watch なし - winscp でサーバに上げる前のコンパイルの時に使ってください。)**
+**SCSS コンパイル専用(watch なし)**
 
 ```
 gulp compile
@@ -72,30 +72,18 @@ Wordpress 内の HTML を「[~/staticHTML](staticHTML)」ディレクトリ配�
 
 ### HTML ファイルの更新
 
-1. [\_localFunction.php](functions/_localFunction.php)を開き、`$this_func_trigger = true`と書き換えます。  
-   ※サーバ側にはこちらのファイルをあげないようにお願いします。
+1. [\_localFunction.php](functions/_localFunction.php)を開き、`$this_func_trigger = true`と書き換えます。
 2. 「~/staticHTML/」配下に HTML ファイルを作成し、そちらを編集して作業を進めます。
-3. サーバ側にアップする時は、サーバ側の Wordpress の投稿画面にて HTML を記入ください。  
-   ※サーバ側には「~/staticHTML/」のファイルをあげないでください。
-
-### SCSS ファイルの更新
-
-基本はいつも通りで問題ないです。  
-新たに追加したスタイルガイドを試してみたいので、scss ファイルを記述する際はスタイルガイド用の記述も加えてください。  
-[StyleGuide の詳細はこちら](assets/styleGuide/overview.md)
+3. サーバ側にアップする時は、サーバ側の Wordpress の投稿画面にて HTML を記入ください。
 
 ### 画像の追加
 
 `~/assets/images_bk`ディレクトリを作成します。  
-上記に画像を格納することで`~/assets/images`に圧縮後の画像が格納されます。  
-※サーバ側には`~/assets/images_bk`のファイルはあげないでください。
+上記に画像を格納することで`~/assets/images`に圧縮後の画像が格納されます。
 
 ## ローカルにサーバ側のデータをマージしたい時
 
 サーバ側の環境の「ALL-in-One WP Migration」プラグインにて下記の通りエクスポートする。(テーマのファイルはインポートしません)  
 https://gyazo.com/f28c1fb58222bfd07dd6165fa69c72a2
 
-エクスポートしたファイルをローカル環境でインポートしてください。  
-上記により ACF やメディアファイルも完全にインポートできるはずです。
-
-HTML は Git にて管理しているので、仮にサーバ側に上書かれたとしてもページに遷移すればローカル側のデータに上書かれるはずです。
+エクスポートしたファイルをローカル環境でインポートしてください。
